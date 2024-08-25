@@ -2,6 +2,7 @@ import { Article } from "../models/article.js";
 import { createArticleMethod } from "../initData.js";
 import getCHD from "../utils/getCHD.js";
 import jwt from "jsonwebtoken";
+import { Writer } from "../models/writer.js";
 
 export const getArticles = async (req, res) => {
   try {
@@ -58,6 +59,12 @@ export const createArticle = async (req, res) => {
       cover: CoverUrl,
     });
     await article.save();
+
+    // Update the writer's articles array
+    await Writer.findByIdAndUpdate(userId, {
+      $push: { articles: article._id },
+    });
+
     res.status(200).json({ message: "Data saved successfully" });
   } catch (err) {
     console.error(err);

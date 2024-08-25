@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import articleRoutes from "./routes/articleRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import searchRoutes from "./routes/searchRoute.js";
+import writerRoutes from "./routes/writerRoute.js";
 import { authenticateToken } from "./middlewares/authenticateToken.js";
 
 // Load environment variables
@@ -45,9 +47,9 @@ app.use(cookieParser());
 // Routes
 app.use("/articles", articleRoutes);
 app.use("/auth", authRoutes);
-
+app.use("/search", searchRoutes);
+app.use("/writer", writerRoutes);
 app.get("/user", authenticateToken, (req, res) => {
-  // console.log(req.user)
   res.json(req.user);
 });
 

@@ -63,7 +63,7 @@ const createDummyData = async () => {
       likeCount: 5,
       commentCount: 1,
       cover:
-        "https://www.krqe.com/wp-content/uploads/sites/12/2023/05/AdobeStock_267410313.jpeg?w=2560&h=1440&crop=1",
+        "https://m.media-amazon.com/images/I/61rQQJaESPL._AC_UF1000,1000_QL80_.jpg",
     });
 
     const article3 = await createArticleMethod({
@@ -78,7 +78,7 @@ const createDummyData = async () => {
       likeCount: 20,
       commentCount: 4,
       cover:
-        "https://m.media-amazon.com/images/I/61rQQJaESPL._AC_UF1000,1000_QL80_.jpg",
+        "https://www.krqe.com/wp-content/uploads/sites/12/2023/05/AdobeStock_267410313.jpeg?w=2560&h=1440&crop=1",
     });
     const article4 = await createArticleMethod({
       title: "Sacred Silliness: Debunking Divine Myths with a Smile",
@@ -113,5 +113,4 @@ const createDummyData = async () => {
   }
   console.log("fuck this is runnning");
 };
-
 // createDummyData();

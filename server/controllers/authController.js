@@ -16,7 +16,7 @@ export const signIn = async (req, res) => {
       { userId: savedWriter._id },
       process.env.JWT_SECRET,
       {
-        expiresIn: "1h",
+        expiresIn: "30d",
       }
     );
     res.cookie("token", token, { secure: true, httponly: true });
@@ -47,7 +47,7 @@ export const login = async (req, res) => {
       { userId: user._id, userName: user.username },
       process.env.JWT_SECRET,
       {
-        expiresIn: "1h",
+        expiresIn: "30d",
       }
     );
     res.cookie("token", token, { secure: true, httponly: true });
