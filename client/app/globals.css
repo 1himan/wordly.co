@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./styles/themes.css";
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}*/
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* body.light {
+  --background-color: #ffffff;
+  --text-color: #4b4b4b;
+  --navbar-background-color: #f8f9fa;
+  --navbar-text-color: #343a40;
+}
+
+body.dark {
+  --background-color: #505050;
+  --text-color: #ffffff;
+  --navbar-background-color: #505050;
+  --navbar-text-color: #f8f9fa;
+} */
+
+/*body {
+  background-color: var(--navbar-background-color);
+  color: var(--text-color);
+} */
+
+/* Custom styles for SweetAlert2 */
+.custom-swal-popup {
+  /* background: linear-gradient(135deg, #ffffff, #ffffff); */
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.custom-swal-title {
+  color: #4a90e2;
+  /* font-family: 'Merriweather', serif; */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.custom-swal-content {
+  /* font-family: 'Merriweather', serif; */
+  font-size: 18px;
+}
+
+.custom-button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  /* font-family: 'Merriweather', serif; */
+  font-size: 20px;
+  transition: background-color 1s ease;
+}
+
+.custom-button:hover {
+  background-color: #357ab8;
+}
