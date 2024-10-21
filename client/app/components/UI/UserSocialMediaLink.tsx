@@ -3,11 +3,17 @@ import React from "react";
 import socialMediaIcons from "@/lib/socialMediaIcons";
 import Link from "next/link";
 
+interface UserSocialMediaLinkProps {
+  socialMediaLink: { [key: string]: string }; // Object mapping social media names to URLs
+  socialMedia: keyof typeof socialMediaIcons; // Key of the social media icons object
+  width?: number; // Optional width for the icon
+}
+
 export default function UserSocialMediaLink({
   socialMediaLink,
   socialMedia,
   width = 30,
-}) {
+}: UserSocialMediaLinkProps) {
   const imageSrc = socialMediaIcons[socialMedia];
   const url = socialMediaLink[socialMedia]; // Get the URL for the specific social media
 
@@ -23,7 +29,7 @@ export default function UserSocialMediaLink({
 
   return (
     <Link href={url} target="_blank" rel="noopener noreferrer">
-      <button type="button" className="">
+      <button type="button" className="flex">
         <Image
           height={50}
           width={width}

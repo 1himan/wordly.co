@@ -1,5 +1,5 @@
 "use client";
-import SignInForm from "../components/SignInForm";
+import SignInForm from "../components/forms/SignInForm";
 import Link from "next/link";
 import { Merriweather } from "next/font/google";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";

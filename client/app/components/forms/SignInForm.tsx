@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Swal from "sweetalert2"; // Import SweetAlert2
-import SocialMediaLink from "./SocialMediaLink";
+import SocialMediaLink from "../UI/ThirdPartyAuthIcons";
 
 const SignInForm = () => {
   const [username, setUsername] = useState("");
@@ -118,20 +118,20 @@ const SignInForm = () => {
       >
         Sign In
       </button>
-      <div className="text-gray-600 my-4 font-medium">Or Continue With:</div>
+      <div className="text-gray-600 font-medium">Or Continue With:</div>
       <div className="flex space-x-4">
         <SocialMediaLink
           handleClick={handleGoogleSignIn}
           socialMedia="google"
         />
-        <SocialMediaLink
+        {/* <SocialMediaLink
           handleClick={handleGitHubSignIn}
           socialMedia="github"
         />
         <SocialMediaLink
           handleClick={handleLinkedInSignIn}
           socialMedia="linkedin"
-        />
+        /> */}
       </div>
     </form>
   );

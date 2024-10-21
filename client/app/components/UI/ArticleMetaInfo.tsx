@@ -28,7 +28,7 @@ export default function LikeComponent({
           </div>
           <div className="flex justify-center items-end">
             <Image
-              src="/like.svg"
+              src="/icons/like.svg"
               alt="like"
               width={20}
               height={40}
@@ -42,7 +42,7 @@ export default function LikeComponent({
           </div>
           <div className="flex justify-center items-end">
             <Image
-              src="/message.svg"
+              src="/icons/message.png"
               alt="comments"
               width={15}
               height={30}

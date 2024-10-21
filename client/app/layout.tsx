@@ -3,7 +3,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "@/app/context/UserContext";
-import Navbar from "./components/navbar";
+import Navbar from "./components/navigation/navbar";
 import { ThemeProvider, useTheme } from "@/app/context/themeContext";
 import { useEffect } from "react";
 

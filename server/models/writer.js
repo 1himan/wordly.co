@@ -1,3 +1,4 @@
+//server/models/writer.js
 import mongoose from "mongoose";
 
 const writerSchema = new mongoose.Schema({
@@ -9,7 +10,11 @@ const writerSchema = new mongoose.Schema({
       return !this.googleId; // Password is required only if googleId is not present
     },
   },
-  googleId: { type: String, unique: true }, // Add googleId field
+  //The googleId field is for users who sign up or log in with their Google accounts. 
+  // When someone signs up using Google, they won't set a traditional password. 
+  // The googleId lets the system recognize and authenticate them based on their Google account instead. 
+  // It's particularly useful for users who prefer using their Google credentials for convenience and added security through OAuth.
+  googleId: { type: String, unique: true, sparse: true }, // Add googleId field
   articles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Article" }],
   bio: { type: String },
 

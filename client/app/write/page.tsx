@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import Editor from "../components/editor";
+import Editor from "../components/articles/editor";
 import "@blocknote/core/fonts/inter.css";
 import "@blocknote/mantine/style.css";
-import ThemeSwitcher from "../components/ThemeSwitcher";
+import ThemeSwitcher from "../components/UI/ThemeSwitcher";
 import { useTheme } from "../context/themeContext";
 
 const jokes = [
@@ -27,7 +27,7 @@ export default function Page() {
   const [user, setUser] = useState<string | null>(null); // State to store user data
   const [isLoaded, setIsLoaded] = useState(false); // State to check if data is loaded
   const router = useRouter();
-    const { theme } = useTheme(); 
+  const { theme } = useTheme();
 
   useEffect(() => {
     // Fetch user data when the component mounts

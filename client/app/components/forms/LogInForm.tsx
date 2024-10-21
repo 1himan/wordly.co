@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Swal from "sweetalert2"; // Import SweetAlert2
-import SocialMediaLink from "./SocialMediaLink";
+import SocialMediaLink from "../UI/ThirdPartyAuthIcons";
 
 const LogInForm = () => {
   const [email, setEmail] = useState("");
@@ -52,56 +52,55 @@ const LogInForm = () => {
 
   const handleGoogleLogin = () => {
     //This URL is expected to be an endpoint on the server that handles Google authentication.
-    //when the user clicks on google icon (login via google) a window is opened requesting google at the following URL 
+    //when the user clicks on google icon (login via google) a window is opened requesting google at the following URL
     window.open("http://localhost:8001/auth/google", "_self");
   };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center">
-      <div>
-        <TextField
-          id="email"
-          label="Email"
-          variant="outlined"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          fullWidth
-          className="w-[90vw] sm:w-72 mb-4"
-        />
+      <div className="flex flex-col items-center gap-4">
+        <div>
+          <TextField
+            id="email"
+            label="Email"
+            variant="outlined"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            fullWidth
+            className="w-[90vw] sm:w-72"
+          />
+        </div>
+        <div>
+          <TextField
+            id="password"
+            label="Password"
+            variant="outlined"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            fullWidth
+            className="w-[90vw] sm:w-72"
+          />
+        </div>
+        <button
+          type="submit"
+          className="font-semibold md:w-[50%] align-middle select-none md:text-xs text-[16px] text-center uppercase disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-4 bg-gradient-to-tr from-[#4a91e2] to-[#92b6e2] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] rounded-md transition-all duration-300"
+        >
+          Log In
+        </button>
       </div>
-      <div>
-        <TextField
-          id="password"
-          label="Password"
-          variant="outlined"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          fullWidth
-          className="w-[90vw] sm:w-72 mb-4"
-        />
-      </div>
-      <button
-        type="submit"
-        className="font-semibold md:w-[50%] align-middle select-none md:text-xs text-[16px] text-center uppercase disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-4 bg-gradient-to-tr from-[#4a91e2] to-[#92b6e2] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] rounded-md transition-all duration-300"
-      >
-        Log In
-      </button>
+
       <div className="text-gray-600 my-4 font-medium">Or Continue With:</div>
       <div className="flex space-x-4">
-        {/* Login via google */}
         <SocialMediaLink handleClick={handleGoogleLogin} socialMedia="google" />
-        {/* rest of the code */}
-        {/* Login via github */}
-        <SocialMediaLink handleClick={handleGoogleLogin} socialMedia="github" />
-        {/* Login via linkedin */}
+        {/* <SocialMediaLink handleClick={handleGoogleLogin} socialMedia="github" />
         <SocialMediaLink
           handleClick={handleGoogleLogin}
           socialMedia="linkedin"
-        />
+        />   */}
       </div>
       {message && <p>{message}</p>}
     </form>

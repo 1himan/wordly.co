@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Merriweather, Open_Sans } from "next/font/google";
 import Link from "next/link";
-import LikeComponent from "./LikeComponent";
+import LikeComponent from "../UI/ArticleMetaInfo";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert"; // MUI icon for the three dots
 import { Add, Share } from "@mui/icons-material";

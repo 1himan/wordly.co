@@ -1,10 +1,10 @@
 "use client";
 import { Open_Sans } from "next/font/google";
 import Link from "next/link";
-import ReadingCards from "@/app/components/ArticleCard";
+import ReadingCards from "@/app/components/articles/ArticleCard";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import UserSocialMediaLink from "@/app/components/UserSocialMediaLink";
+import UserSocialMediaLink from "@/app/components/UI/UserSocialMediaLink";
 import Chip from "@mui/material/Chip"; // Import MUI Chip
 
 // Define the Writer interface

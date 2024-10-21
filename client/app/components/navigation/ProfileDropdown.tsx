@@ -1,16 +1,26 @@
 import * as React from "react";
 import { Menu, MenuItem, IconButton, Avatar } from "@mui/material";
-import useLogout from "../hooks/useLogout";
+import useLogout from "../../hooks/useLogout";
 import Link from "next/link";
 import { Logout } from "@mui/icons-material";
 import ProfileIcon from "./ProfileIcon";
 
-export default function ProfileDropdown({ imageUrl, alt, userId }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+interface ProfileDropdownProps {
+  imageUrl: string;
+  alt: string;
+  userId: string;
+}
+
+export default function ProfileDropdown({
+  imageUrl,
+  alt,
+  userId,
+}: ProfileDropdownProps) {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null); // Proper typing for anchorEl
   const open = Boolean(anchorEl);
   const logout = useLogout();
 
-  const handleClick = (event) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 

@@ -17,7 +17,6 @@ const clearCollections = async () => {
 const createWriter = async (writerData) => {
   const writer = new Writer(writerData);
   await writer.save();
-  // console.log(`Writer ID: ${writer._id}`);
   return writer;
 };
 
@@ -122,11 +121,10 @@ const createDummyData = async () => {
     await writer4.save();
 
     console.log("Dummy data inserted successfully");
-    // mongoose.connection.close();
   } catch (err) {
     console.error(err);
     mongoose.connection.close();
   }
-  console.log("fuck this is running");
+  console.log("Data Initialized successfully");
 };
-// createDummyData();
+createDummyData();

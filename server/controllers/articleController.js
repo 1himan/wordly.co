@@ -7,7 +7,9 @@ import { Writer } from "../models/writer.js";
 export const getArticles = async (req, res) => {
   try {
     //what does .exec() do?
+    console.log("this is running")
     const articles = await Article.find().exec();
+    console.log("this is 1:",articles)
     const formattedArticles = articles.map((article) => ({
       imageUrl: article.cover || "/home/code1.jpg",
       heading: article.title,
@@ -21,6 +23,7 @@ export const getArticles = async (req, res) => {
       commentsCount: article.commentCount,
       id: article._id,
     }));
+    console.log("this is 2:", formattedArticles);
     res.send(formattedArticles);
   } catch (err) {
     console.error(err);

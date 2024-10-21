@@ -11,8 +11,6 @@ import writerRoutes from "./routes/writerRoute.js";
 import googleAuth from "./routes/googleAuth.js";
 import { authenticateToken } from "./middlewares/authenticateToken.js";
 import logoutRoute from "./routes/logout.js";
-
-// Load environment variables
 dotenv.config();
 
 // Connect to the database
@@ -20,6 +18,13 @@ connectDB();
 
 const app = express();
 const port = process.env.PORT;
+
+// mongoose.connection is a reference(what is a reference? how is it made internally?)
+// to the default MongoDB 
+// connection that Mongoose establishes when you connect to a 
+// database using mongoose.connect(). By using mongoose.connection, 
+// you can add event listeners like on("error") or once("open") 
+// to listen for changes in the state of the connection.
 const db = mongoose.connection;
 
 // Database event listeners
@@ -37,14 +42,30 @@ db.on("disconnected", () => {
 });
 
 // Middleware setup
+// .use() is a method in our express "app" that is used to apply middlewares.
+// tell me more fact and interesting info about app.use
 app.use(
+  // what is cors - Cross Origin Resource Sharing?
   cors({
+    // what are these parameters?
     origin: "http://localhost:3000",
     credentials: true,
   })
 );
+// what is express.json() and what does it do?
 app.use(express.json());
+// what is cookieParser() and what does it do?
 app.use(cookieParser());
+// and why are we using both of these "middleswares" inside of app.use?
+
+app.get("/", async (req, res) => {
+  try {
+    res.send("Hello, how are you? Welcome to Our App");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
 
 // Routes
 app.use("/articles", articleRoutes);
@@ -56,13 +77,4 @@ app.use("/auth/logout", logoutRoute);
 
 app.get("/user", authenticateToken, (req, res) => {
   res.json(req.user);
-});
-
-app.get("/", async (req, res) => {
-  try {
-    res.send("Hello, how are you? Welcome to Our App");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send(err);
-  }
 });

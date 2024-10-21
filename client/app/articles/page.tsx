@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
-import ReadingCards from "../components/ArticleCard";
-import ExploreSkeleton from "../components/skeletons/articles";
+import ReadingCards from "../components/articles/ArticleCard";
+import ExploreSkeleton from "../components/articles/skeletons/articles";
 import Swal from "sweetalert2";
 import debounce from "lodash.debounce";
 import { useTheme } from "../context/themeContext";

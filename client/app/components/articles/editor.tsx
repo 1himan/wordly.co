@@ -3,7 +3,7 @@ import { useCreateBlockNote } from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
 import { Dispatch, SetStateAction } from "react";
-import { useTheme } from "../context/themeContext";
+import { useTheme } from "../../context/themeContext";
 
 const initialContent: any = [
   {
